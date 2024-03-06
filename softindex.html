@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bill Payment and Wallet Transfer</title>
+  <link rel="stylesheet" href="style.css Softbill" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+<header> Welcome to Softmide Pay
+  <h1 style="background-color:rgb(255, 165, 0);">faster and reliable payment </h1>
+  <h1> Pay with Softmide </h1>
+  <div class="logo">
+    <img src="imagesqr.png" width="400px" alt="Logo">
+</div>
+<div class="main-content">
+  <nav>
+    <ul>
+      <li><a href="sign-in-softbill.html"><i class="fa fa-sign-in"></i>Sign in</a></li>
+      <li><a href="registerwallet.html"><i class="fa fa-sign-in"></i>Register Wallet</a></li>
+      <li><a href="#"><i class="fa fa-sign-in"></i>Pay Bill</a></li>
+            
+    </ul>
+  </nav>
+</header>
+  <form>
+    
+  <style>
+    
+
+    .form-container {
+      width: 300px;
+      margin: 20px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #fff;
+    }
+  </style>
+  <script>
+    
+    
+    function convertToNaira(currency, amount) {
+      
+      const conversionRates = {
+        USD: 1128.08,   // 1 USD = 1128 NGN
+        EURO: 1158.17,  // 1 EURO = 1158 NGN
+        GBP: 1355.06    // 1 GBP = 1355 NGN
+      };
+
+      return amount * conversionRates[currency];
+    }
+   
+
+    function handleBillPayment(form) {
+      const billAmount = parseFloat(form.billAmount.value);
+      const billRecipient = form.billRecipient.value;
+      const billAccount = form.billAccount.value;
+      
+      form.reset();
+    }
+
+    function handleTransfer(form) {
+      const transferAmount = parseFloat(form.transferAmount.value);
+      const walletBalance = parseFloat(form.walletBalance.value);
+      const bankAccount = form.bankAccount.value;
+      
+      form.reset();
+    }
+
+    function handleWalletRegistration(form) {
+      const email = form.email.value;
+      const password = form.password.value;
+      
+      form.reset();
+    }
+
+    function handleSignIn(form) {
+      const email = form.email.value;
+      const password = form.password.value;
+    
+      form.reset();
+    }
+
+    function displayAlert(message, type) {
+      const alertElement = document.createElement('div');
+      alertElement.classList.add('alert', type);
+      alertElement.textContent = message;
+      document.body.appendChild(alertElement);
+
+      setTimeout(function() {
+        alertElement.remove();
+      }, 3000);
+    }
+
+    function handleReceiveMoney(form) {
+            const amount = parseFloat(form.amount.value);
+            const sender = form.sender.value;
+            
+            console.log(`Received NGN ${amount.toFixed(2)} from ${sender} to wallet.`);
+            form.reset();
+        }
+
+        function handleCashPickup(form) {
+            const amount = parseFloat(form.amount.value);
+            const location = form.location.value;
+            
+            console.log(`Requested NGN ${amount.toFixed(2)} cash pickup at ${location}.`);
+            form.reset();
+        }
+
+        function handleWalletToBankTransfer(form) {
+            const amount = parseFloat(form.amount.value);
+            const bank = form.bank.value;
+            const account = form.account.value;
+            
+            console.log(`Transferred NGN ${amount.toFixed(2)} from wallet to ${bank} account (${account}).`);
+            form.reset();
+        }
+  </script>
+</head>
+<body>
+  
+  <h1>Bill Payment</h1>
+  <form onsubmit="handleBillPayment(this); return false;">
+    <label for="billAmount">Bill Amount:</label>
+    <input type="number" id="billAmount" name="billAmount" required><br>
+  
+    <label for="currency">Currency:</label>
+    <select id="currency" name="currency">
+      <option value="USD">NGN</option>
+      <option value="USD">USD</option>
+      <option value="EURO">EURO</option>
+      <option value="GBP">GBP</option>
+    </select><br>
+
+    <label for="billRecipient">Recipient:</label>
+    <input type="text" id="billRecipient" name="billRecipient" required><br>
+  
+    <label for="billAccount">Account Number:</label>
+    <input type="text" id="billAccount" name="billAccount" required><br>
+  
+    <input type="submit" value="Pay Bill">
+  </form>
+
+  <h1>Wallet to Bank Transfer</h1>
+  <form onsubmit="handleTransfer(this); return false;">
+    <label for="transferAmount">Transfer Amount:</label>
+    <input type="number" id="transferAmount" name="transferAmount" required><br>
+  
+    <label for="currency">Currency:</label>
+    <select id="currency" name="currency">
+      <option value="USD">NGN</option>
+      <option value="USD">USD</option>
+      <option value="EURO">EURO</option>
+      <option value="GBP">GBP</option>
+    </select><br>
+
+    <label for="walletBalance">Wallet Balance:</label>
+    <input type="text" id="walletBalance" name="walletBalance" readonly><br>
+  
+    <label for="bankAccount">Bank Account Number:</label>
+    <input type="text" id="bankAccount" name="bankAccount" required><br>
+  
+    <input type="submit" value="Transfer">
+  </form>
+
+ 
+
+<div class="operation-form">
+        <h1>Receive Money to Wallet</h1>
+        <form onsubmit="handleReceiveMoney(this); return false;">
+            <label for="amount">Amount:</label>
+            <input type="number" id="amount" name="amount" required><br>
+
+            <label for="sender">Sender:</label>
+            <input type="text" id="sender" name="sender" required><br>
+
+            <input type="submit" value="Receive to Wallet">
+        </form>
+    </div>
+
+    <div class="operation-form">
+        <h1>Cash Pickup</h1>
+        <form onsubmit="handleCashPickup(this); return false;">
+            <label for="amount">Amount:</label>
+            <input type="number" id="amount" name="amount" required><br>
+
+            <label for="location">Pickup Location:</label>
+            <input type="text" id="location" name="location" required><br>
+
+            <input type="submit" value="Request Cash Pickup">
+        </form>
+    </div>
+
+    <div class="operation-form">
+        <h1>Bank Transfer to Wallet</h1>
+        <form onsubmit="handleBankTransferToWallet(this); return false;">
+            <label for="amount">Amount:</label>
+            <input type="number" id="amount" name="amount" required><br>
+
+            <label for="currency">Currency:</label>
+    <select id="currency" name="currency">
+      <option value="USD">NGN</option>
+      <option value="USD">USD</option>
+      <option value="EURO">EURO</option>
+      <option value="GBP">GBP</option>
+
+            <label for="bank">Bank Name:</label>
+            <input type="text" id="bank" name="bank" required><br>
+
+            <label for="account">Account Number:</label>
+            <input type="text" id="account" name="account" required><br>
+
+            <input type="submit" value="Transfer to Wallet">
+        </form>
+    </div>
+
+
+  <picture>
+    <source media="(min-width:650px)" srcset="imagesqr.png">
+    <source media="(min-width:465px)" srcset="frontimg.jpg">
+    <img src="imagesqr.png" alt="Pay and Transfer" style="width: wide;">
+  </picture>
+
+  
+
+<div class="container">
+    
+    <a class="download-button iphone" href="https://apps.apple.com/us/app/your-app-id"><img src="appstore.png">
+        Download on the App Store
+    </a>
+    <a class="download-button android" href="https://play.google.com/store/apps/details?id=your.app.package"> <img src="googleplay.png">
+        Get it on Google Play
+        
+    </a>
+    
+    <footer>
+      <p>&copy; 2024 Softmide Pay. All rights reserved.</p>
+  </footer>    
+
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
