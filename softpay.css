@@ -1,0 +1,136 @@
+
+body, h1, h2, h3, h4, h5, h6, p, ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+
+header {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+header h1 {
+  background-color: rgb(255, 165, 0);
+  padding: 10px;
+  color: #fff;
+}
+
+.logo img {
+  width: 400px;
+}
+
+
+.main-content {
+  text-align: center;
+  margin: 20px;
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 10px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+}
+
+
+.form-container {
+  width: 300px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.form-container label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-container input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+.form-container select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+.form-container input[type="submit"] {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+.alert {
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.alert.success {
+  background-color: #4CAF50;
+  color: #fff;
+}
+
+
+picture {
+  display: block;
+  margin: auto;
+  max-width: 100%;
+}
+
+.container {
+  text-align: center;
+  margin: 20px;
+}
+
+.download-button {
+  display: inline-block;
+  padding: 15px 30px;
+  font-size: 16px;
+  text-decoration: none;
+  margin: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.download-button.iphone {
+  background-color: #000;
+  color: #fff;
+}
+
+.download-button.android {
+  background-color: #3ddc84;
+  color: #000;
+}
+
+.download-button:hover {
+  background-color: #333;
+}
